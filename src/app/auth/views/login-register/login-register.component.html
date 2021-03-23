@@ -1,0 +1,47 @@
+<main>
+    <div class="login">
+        <div class="login__title">
+            <h1>Đăng nhập / Đăng ký</h1>
+        </div>
+        <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <input id="email" type="email" formControlName="email" placeholder="Nhập Email" required (click)="onEmailFocus()">
+            <ng-container *ngIf="isValidEmailError">
+                <p [ngStyle]="{'color': isValidEmailError?'red':null}">Email không hợp lệ, vui lòng nhập lại.</p>
+            </ng-container>
+            <ng-container *ngIf="isEmailEmpty">
+                <p [ngStyle]="{'color': isEmailEmpty?'red':null}">Vui lòng nhập email</p>
+            </ng-container>
+            <input id="password" type="password" formControlName="password" placeholder="Nhập Password (8 ký tự)" required>
+            <ng-container *ngIf="isValidPasswordError">
+                <p [ngStyle]="{'color': isValidPasswordError?'red':null}">Password không hợp lệ, vui lòng nhập lại.</p>
+            </ng-container>
+            <ng-container *ngIf="isEmailEmpty">
+                <p [ngStyle]="{'color': isPasswordEmpy?'red':null}">Vui lòng nhập password</p>
+            </ng-container>
+            <button>Đăng nhập</button>
+        </form>
+
+        <div class="login__other__title">
+            <span>Đăng nhập khác</span>
+            <em></em>
+        </div>
+
+        <div class="login__other">
+            <div class="item" (click)="loginWithinFacebook()">
+                <img src="../../../../assets/images/facebook-icon.png" alt="">
+                <span>Facebook</span>
+            </div>
+            <div class="item" (click)="loginWithinGoogle()">
+                <img src="../../../../assets/images/google-icon.png" alt="">
+                <span>Google</span>
+            </div>
+            <div class="item" (click)="loginWithinApple()">
+                <img src="../../../../assets/images/apple-icon.png" alt="">
+                <span>Apple</span>
+            </div>
+        </div>
+    </div>
+</main>
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>

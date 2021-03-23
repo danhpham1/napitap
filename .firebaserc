@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "itapvnid": {
+      "hosting": {
+        "itap": [
+          "itapvnid"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+main {
+    min-height: 100vh;
+    max-width: 100%;
+    background: linear-gradient(to bottom, #a7a4a4, #e6e6e6);
+    display: flex;
+    flex-direction: column;
+
+    .login {
+        background: linear-gradient(to bottom, #d8d5d5, #fcfbfb);
+        width: 50%;
+        margin: auto;
+        height: auto;
+
+        &__title {
+            padding: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #00b3ff;
+            font-weight: 900;
+            margin-bottom: 30px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        margin: auto;
+        margin-bottom: 50px;
+
+        input {
+            background: #e9e9e9;
+            width: 300px;
+            height: 40px;
+            text-align: center;
+            border: none;
+            margin: 10px 0px;
+            font-size: 20px;
+        }
+
+
+        input:focus {
+            outline: none;
+        }
+
+        button {
+            margin: 20px 0px;
+            width: 300px;
+            padding: 10px;
+            font-size: 20px;
+            background: rgb(0, 179, 255);
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            &:hover {
+                background: rgba(0, 179, 255, 0.7);
+
+            }
+        }
+    }
+
+    .login__other__title {
+        width: 100%;
+        height: 30px;
+        position: relative;
+
+        span {
+            position: absolute;
+            left: 44%;
+            padding: 10px;
+            background: rgb(223, 222, 222);
+            z-index: 3;
+            top: 0px;
+            font-size: 14px;
+        }
+
+        em {
+            width: 100%;
+            background: #d6d4d4;
+            height: 1px;
+            position: absolute;
+            left: 0px;
+            top: 20px;
+            z-index: 1;
+        }
+    }
+
+    .login__other {
+
+        display: flex;
+        width: 50%;
+        margin: auto;
+        justify-content: space-evenly;
+        margin: 80px auto;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            img {
+                height: 80px !important;
+                width: 80px !important;
+            }
+
+            span {
+                padding: 10px 0px;
+            }
+
+            &:hover span {
+
+                color: #00b3ff;
+            }
+        }
+    }
+}
