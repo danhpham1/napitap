@@ -4,19 +4,22 @@
             <h1>Đăng nhập / Đăng ký</h1>
         </div>
         <form class="login__form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <input id="email" type="email" formControlName="email" placeholder="Nhập Email" required (click)="onEmailFocus()">
+            <input id="email" type="email" formControlName="email" placeholder="Nhập Email" required (click)="onEmailFocus()" onKe>
             <ng-container *ngIf="isValidEmailError">
                 <p [ngStyle]="{'color': isValidEmailError?'red':null}">Email không hợp lệ, vui lòng nhập lại.</p>
             </ng-container>
             <ng-container *ngIf="isEmailEmpty">
                 <p [ngStyle]="{'color': isEmailEmpty?'red':null}">Vui lòng nhập email</p>
             </ng-container>
-            <input id="password" type="password" formControlName="password" placeholder="Nhập Password (8 ký tự)" required>
+            <input id="password" type="password" formControlName="password" placeholder="Nhập Password (8 ký tự)" required (click)="onPasswordFocus()">
             <ng-container *ngIf="isValidPasswordError">
                 <p [ngStyle]="{'color': isValidPasswordError?'red':null}">Password không hợp lệ, vui lòng nhập lại.</p>
             </ng-container>
             <ng-container *ngIf="isEmailEmpty">
                 <p [ngStyle]="{'color': isPasswordEmpy?'red':null}">Vui lòng nhập password</p>
+            </ng-container>
+            <ng-container *ngIf="isPassAndEmaildNotCorrect">
+                <p [ngStyle]="{'color': isPassAndEmaildNotCorrect?'red':null}">Email hoặc Password không đúng, vui lòng nhập lại.</p>
             </ng-container>
             <button>Đăng nhập</button>
         </form>

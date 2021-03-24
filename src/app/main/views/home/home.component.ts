@@ -10,6 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
   user:any;
+  urlImage!:string;
+  name!:string;
   
   constructor(
     private authService:AuthService,
@@ -21,16 +23,9 @@ export class HomeComponent implements OnInit {
     this.user = localStorage.getItem("user");
     if(this.user){
       this.user = JSON.parse(this.user);
-      console.log(this.user);
+      this.user.photoURL ? this.urlImage = this.user.photoURL : this.urlImage = "../../../../assets/images/avatar.png";
+      this.user.displayName ? this.name = this.user.displayName : this.name = this.user.email;
     }
   }
 
-  logout(){
-    this.authService.logout()
-    .then(rs=>{
-      localStorage.removeItem("user");
-      this.toastrService.success('Đăng xuất thành công');
-      this.router.navigateByUrl("/login");
-    })
-  }
 }

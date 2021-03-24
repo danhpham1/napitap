@@ -12,7 +12,19 @@ export const environment = {
     messagingSenderId: "632446426907",
     appId: "1:632446426907:web:836cf1ba616e1baabcbdbe",
     measurementId: "G-LCVCW9D01Z"
-  }
+  },
+
+  Host:"https://pay.itap.vn/",
+  APIPrefix:"frontend/",
+  APIVersion:"v1/",
+
+  APIListGame:"games",
+
+  APIUserInfo:"user-info",
+
+  APIPaymentPrice:"payment",
+
+  secureHash:"1c271ecaa022333fba85ab8897d524a5"
 };
 
 /*

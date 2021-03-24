@@ -1,3 +1,10 @@
 <main>
-    <v-header></v-header>
+    <div class="container">
+        <v-header 
+        [urlImg]="urlImage"
+        [name]="name"
+        ></v-header>
+        <router-outlet></router-outlet>
+        <v-footer></v-footer>
+    </div>
 </main>

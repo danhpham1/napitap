@@ -19,6 +19,7 @@ export class LoginRegisterComponent implements OnInit {
 
   isValidPasswordError:boolean;
   isPasswordEmpy:boolean;
+  isPassAndEmaildNotCorrect:boolean;
 
   constructor(
     private authService:AuthService,
@@ -32,6 +33,7 @@ export class LoginRegisterComponent implements OnInit {
 
     this.isValidPasswordError = false;
     this.isPasswordEmpy = false;
+    this.isPassAndEmaildNotCorrect = false;
   }
 
   ngOnInit(): void {
@@ -89,6 +91,7 @@ export class LoginRegisterComponent implements OnInit {
         })
         .catch(error=>{
             this.toastr.error("Đăng ký / Đăng nhập thất bại");
+          this.isPassAndEmaildNotCorrect = true;
           this.spinnerService.hide();
         })
       })
@@ -140,11 +143,13 @@ export class LoginRegisterComponent implements OnInit {
   }
 
   onEmailFocus(){
+    this.isPassAndEmaildNotCorrect = false;
     this.isValidEmailError = false;
     this.isEmailEmpty = false;
   }
 
   onPasswordFocus(){
+    this.isPassAndEmaildNotCorrect = false;
     this.isValidPasswordError = false;
     this.isPasswordEmpy = false;
   }

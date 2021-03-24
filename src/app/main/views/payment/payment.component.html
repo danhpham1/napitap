@@ -1,0 +1,157 @@
+<div class="payment">
+    <!-- <ng-container *ngIf="userError">
+        <h3 class="userInfoNotFound">Bạn chưa có tài khoản trong game này.</h3>
+    </ng-container> -->
+
+    <!-- <ng-container *ngIf="userInfo"> -->
+    <div class="payment__location">
+        <a routerLink="/home">Trang Chủ</a>
+        >
+        <a>Nạp tiền</a>
+    </div>
+    <div class="payment__info">
+        <div class="payment__info__user__mobile">
+            <h3>Thông Tin nhân vật</h3>
+            <p>tropy:<b>310</b></p>
+            <p>Vé thường:<b>8750</b></p>
+            <p>Vé vip:<b>90</b></p>
+        </div>
+        <div class="payment__info__option">
+            <div class="titlesub">Chọn tài khoản</div>
+            <div class="form_input_wrapper">
+                <select name="" id="" class="input-text">
+                    <option selected="selected" value="">-- Chọn Tài khoản --</option>
+                </select>
+            </div>
+            <div class="titlesub">Chọn máy chủ</div>
+            <div class="form_input_wrapper">
+                <select name="" id="" class="input-text">
+                    <option selected="selected" value="">-- Chọn máy chủ --</option>
+                </select>
+            </div>
+            <div class="titlesub">Chọn nhân vật</div>
+            <div class="form_input_wrapper">
+                <select name="" id="" class="input-text">
+                    <option selected="selected" value="">-- Chọn nhân vật --</option>
+                </select>
+            </div>
+        </div>
+        <div class="payment__info__user">
+            <h3>Thông Tin nhân vật</h3>
+            <p>tropy:<b>310</b></p>
+            <p>Vé thường:<b>8750</b></p>
+            <p>Vé vip:<b>90</b></p>
+        </div>
+    </div>
+
+    <div class="titlesub margin-10">
+        Chọn loại thẻ nạp
+    </div>
+
+    <div class="payment__option">
+        <div class="payment__option__img">
+            <div #cardGate class="img" data-type-card="gate" [ngClass]="{'selected': isCardGate}" (click)="onClickCard(cardGate)">
+                <img src="../../../../assets/images/gate.png" alt="" >
+            </div>
+            <div #cardIsec class="img" data-type-card="isec" [ngClass]="{'selected': isCardIsec}" (click)="onClickCard(cardIsec)">
+                <img src="../../../../assets/images/gate.png" alt="" >
+            </div>
+            <div #cardK class="img" data-type-card="k" [ngClass]="{'selected': isCardK}" (click)="onClickCard(cardK)">
+                <img src="../../../../assets/images/gate.png" alt="" >
+            </div>
+        </div>
+    </div>
+
+    <ng-container *ngIf="isCardGate">
+        <div class="payment__price">
+            <div class="info">
+                <h4>Thẻ Gate</h4>
+                <div class="payment__price__table">
+                    <table>
+                        <tr>
+                            <th>VND</th>
+                            <th>Vé vip</th>
+                        </tr>
+                        <ng-container *ngIf="paymentPriceGate.length >= 1">
+                            <tr *ngFor="let price of paymentPriceGate">
+                                <td>{{price.vnd | currency:'VND':'symbol'}}</td>
+                                <td>{{price.game_amount}}</td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+            <div class="payment__price__form">
+                <h3>Điền thông tin thẻ</h3>
+                <hr>
+                <form>
+                    <div>
+                        <label for="maseri">Nhập seri thẻ</label>
+                        <input type="text" id="maseri" name="maseri">
+                    </div>
+                    <div>
+                        <label for="mapin">Nhập pin thẻ</label>
+                        <input type="text" id="mapin" name="mapin">
+                    </div>
+                    <button>Xác Nhận</button>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="isCardIsec">
+        <div class="payment__price">
+            <div class="info">
+                <h4>Thẻ Isec</h4>
+                <div class="payment__price__tabel">
+                    <table>
+                        <tr>
+                            <th>VND</th>
+                            <th>Vé vip</th>
+                        </tr>
+                        <tr>
+                            <td>10000</td>
+                            <td>1000</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="payment__price__form">
+                <form action="">
+                    <input type="text">
+                    <button>nạp</button>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="isCardK">
+        <div class="payment__price">
+            <div class="info">
+                <h4>Thẻ K</h4>
+                <div class="payment__price__table">
+                    <table>
+                        <tr>
+                            <th>VND</th>
+                            <th>Vé vip</th>
+                        </tr>
+                        <ng-container *ngIf="paymentPriceK.length >= 1">
+                            <tr *ngFor="let price of paymentPriceK">
+                                <td>{{price.vnd | currency:'VND':'symbol'}}</td>
+                                <td>{{price.game_amount}}</td>
+                            </tr>
+                        </ng-container>
+                    </table>
+                </div>
+            </div>
+            <div class="payment__price__form">
+                <form action="">
+                    <input type="text">
+                    <button>nạp</button>
+                </form>
+            </div>
+        </div>
+    </ng-container>
+    
+    <!-- </ng-container> -->
+</div>

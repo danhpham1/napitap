@@ -1,0 +1,38 @@
+.game {
+    margin-left: 85px;
+    margin-bottom: 100px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:hover h5 {
+        color: rgba(66, 65, 65, 0.918);
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    h5 {
+        padding: 5px;
+        font-size: 18px;
+        font-weight: 900;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .game {
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 50px;
+        
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    }
+}

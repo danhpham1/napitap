@@ -1,3 +1,17 @@
 <div class="header">
-    <img src="" alt="" class="header__logo">
+    <img src="../../../../assets/images/logogame.png" alt="" class="header__logo">
+    <div class="header__dropdow"  (click)="toggleDropDown()">
+        <img src={{urlImg}} alt="">
+        <span>{{name}}</span>
+        <div class="dropdow" [ngClass]="{'show': isDropdown}">
+            <ul>
+                <li class="dropdow__item" routerLink="/home">
+                    Trang chủ
+                </li>
+                <li class="dropdow__item" (click)="logout()">
+                    Đăng xuất
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

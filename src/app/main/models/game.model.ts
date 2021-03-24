@@ -1,0 +1,22 @@
+export interface IGameResponse{
+    current_page:number,
+    data:Array<IGame>,
+    first_page_url: string,
+    from: number,
+    last_page: number,
+    last_page_url: string,
+    next_page_url: string,
+    path: string,
+    per_page: number,
+    prev_page_url: string,
+    to: number,
+    total: number
+}
+
+export interface IGame{
+    app_id:string,
+    name:string,
+    priority:number,
+    image_url:string,
+    have_server:number
+}

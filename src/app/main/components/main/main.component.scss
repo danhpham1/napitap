@@ -1,0 +1,32 @@
+.main {
+    min-height: calc(100vh - 120px);
+    margin: auto;
+    background: white;
+
+    &__title {
+        margin-bottom: 35px;
+        padding: 25px 0px;
+
+        h2 {
+            border-bottom: 1px solid #e6e6e6;
+            border-left: 3px solid #00b3ff;
+            padding: 10px 5px;
+        }
+    }
+
+    &__listgame {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .main{
+        &__listgame{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

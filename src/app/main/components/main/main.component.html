@@ -1,0 +1,13 @@
+<div class="main">
+    <div class="main__title">
+        <h2>Danh sách các game</h2>
+    </div>
+    <div class="main__listgame">
+        <ng-container *ngIf="listGame.length >= 1">
+            <v-game *ngFor="let game of listGame" [game]="game"></v-game>
+        </ng-container>
+        <ng-container *ngIf="isNotGame">
+            <h5>Hiện tại không có game</h5>
+        </ng-container>
+    </div>
+</div>

@@ -3,3 +3,16 @@ main {
     max-width: 100%;
     background: linear-gradient(to bottom, #a7a4a4, #e6e6e6);
 }
+
+.container {
+    width: 55%;
+    margin: auto;
+    position: relative;
+    min-height: 100vh;
+}
+
+v-footer {
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+}
