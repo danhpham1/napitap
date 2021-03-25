@@ -1,9 +1,9 @@
 <div class="payment">
-    <!-- <ng-container *ngIf="userError">
+    <ng-container *ngIf="userError">
         <h3 class="userInfoNotFound">Bạn chưa có tài khoản trong game này.</h3>
-    </ng-container> -->
+    </ng-container>
 
-    <!-- <ng-container *ngIf="userInfo"> -->
+    <ng-container *ngIf="userInfo">
     <div class="payment__location">
         <a routerLink="/home">Trang Chủ</a>
         >
@@ -27,20 +27,24 @@
             <div class="form_input_wrapper">
                 <select name="" id="" class="input-text">
                     <option selected="selected" value="">-- Chọn máy chủ --</option>
+                    <option  value="1">Sever 1</option>
                 </select>
             </div>
             <div class="titlesub">Chọn nhân vật</div>
             <div class="form_input_wrapper">
                 <select name="" id="" class="input-text">
                     <option selected="selected" value="">-- Chọn nhân vật --</option>
+                    <ng-container *ngIf="userInfo.nickname">
+                    <option  value="">{{userInfo.nickname}}</option>
+                    </ng-container>
                 </select>
             </div>
         </div>
         <div class="payment__info__user">
             <h3>Thông Tin nhân vật</h3>
-            <p>tropy:<b>310</b></p>
-            <p>Vé thường:<b>8750</b></p>
-            <p>Vé vip:<b>90</b></p>
+            <p>tropy:<b>{{userInfo.tropy}}</b></p>
+            <p>Vé thường:<b>{{userInfo.normal_ticket}}</b></p>
+            <p>Vé vip:<b>{{userInfo.vip_ticket}}</b></p>
         </div>
     </div>
 
@@ -84,14 +88,20 @@
             <div class="payment__price__form">
                 <h3>Điền thông tin thẻ</h3>
                 <hr>
-                <form>
+                <form [formGroup]="paymentGateForm" (ngSubmit)="handleSubmitFormGate()">
                     <div>
                         <label for="maseri">Nhập seri thẻ</label>
-                        <input type="text" id="maseri" name="maseri">
+                        <input type="text" id="maseri" name="maseri" formControlName="seriGate" (click)="onClickInputSeriGate()">
+                        <ng-container *ngIf="isSeriGateEmpty" >
+                            <p [ngStyle]="{'color': isSeriGateEmpty ? 'red' : null}">Vui lòng nhập mã seri cho thẻ</p>
+                        </ng-container>
                     </div>
                     <div>
                         <label for="mapin">Nhập pin thẻ</label>
-                        <input type="text" id="mapin" name="mapin">
+                        <input type="text" id="mapin" name="mapin" formControlName="pinGate" (click)="onClickInputPinGate()">
+                        <ng-container *ngIf="isPinGateEmpty">
+                            <p  [ngStyle]="{'color': isPinGateEmpty ? 'red' : null}">Vui lòng nhập mã pin cho thẻ</p>
+                        </ng-container>
                     </div>
                     <button>Xác Nhận</button>
                 </form>
@@ -103,24 +113,50 @@
         <div class="payment__price">
             <div class="info">
                 <h4>Thẻ Isec</h4>
-                <div class="payment__price__tabel">
+                <div class="payment__price__table">
                     <table>
                         <tr>
                             <th>VND</th>
                             <th>Vé vip</th>
                         </tr>
                         <tr>
-                            <td>10000</td>
-                            <td>1000</td>
+                            <td>{{1 * 10000|currency:'VND':'symbol'}}</td>
+                            <td>{{1 * 10000 * paymentPriceIsec[0].game_amount_rate}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{2 * 10000|currency:'VND':'symbol'}}</td>
+                            <td>{{2 * 10000 * paymentPriceIsec[0].game_amount_rate}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{5 * 10000|currency:'VND':'symbol'}}</td>
+                            <td>{{5 * 10000 * paymentPriceIsec[0].game_amount_rate}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{10 * 10000|currency:'VND':'symbol'}}</td>
+                            <td>{{10 * 10000 * paymentPriceIsec[0].game_amount_rate}}</td>
+                        </tr>
+                        <tr>
+                            <td>{{20 * 10000|currency:'VND':'symbol'}}</td>
+                            <td>{{20 * 10000 * paymentPriceIsec[0].game_amount_rate}}</td>
                         </tr>
                     </table>
                 </div>
             </div>
             <div class="payment__price__form">
-                <form action="">
-                    <input type="text">
-                    <button>nạp</button>
-                </form>
+                <div class="payment__price__form">
+                    <h3>Điền thông tin thẻ</h3>
+                    <hr>
+                    <form class="form-fix" [formGroup]='paymentIsecForm' (ngSubmit)="handleSubmitFormIsec()">
+                        <div>
+                            <label for="mapin">Nhập pin thẻ</label>
+                            <input type="text" id="mapin" name="mapin" formControlName="pinIsec" (click)="onClickInputPinIsec()">
+                            <ng-container *ngIf="isPinIsecEmpty">
+                                <p [ngStyle]="{'color': isPinIsecEmpty ? 'red' : null}">Vui lòng nhập mã pin cho thẻ</p>
+                            </ng-container>
+                        </div>
+                        <button>Xác Nhận</button>
+                    </form>
+                </div>
             </div>
         </div>
     </ng-container>
@@ -145,13 +181,23 @@
                 </div>
             </div>
             <div class="payment__price__form">
-                <form action="">
-                    <input type="text">
-                    <button>nạp</button>
-                </form>
+                <div class="payment__price__form">
+                    <h3>Điền thông tin thẻ</h3>
+                    <hr>
+                    <form class="form-fix" [formGroup]="paymentKForm" (ngSubmit)="handleSubmitFormK()">
+                        <div>
+                            <label for="mapin">Nhập pin thẻ</label>
+                            <input type="text" id="mapin" name="mapin" formControlName="pinK" (click)="onClickInputPinK()">
+                            <ng-container *ngIf="isPinKEmpty">
+                                <p [ngStyle]="{'color': isPinKEmpty ? 'red' : null}">Vui lòng nhập mã pin cho thẻ</p>
+                            </ng-container>
+                        </div>
+                        <button>Xác nhận</button>
+                    </form>
+                </div>
             </div>
         </div>
     </ng-container>
     
-    <!-- </ng-container> -->
+    </ng-container>
 </div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IGame } from '../../models/game.model';
-import { GameService } from './../../services/game.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'v-main',

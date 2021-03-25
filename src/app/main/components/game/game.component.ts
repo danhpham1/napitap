@@ -9,8 +9,12 @@ import { IGame } from '../../models/game.model';
 export class GameComponent implements OnInit {
 
   @Input()game!:IGame;
+
+  @Input()isGiftCode:boolean;
   
-  constructor() { }
+  constructor() { 
+    this.isGiftCode = false;
+  }
 
   ngOnInit(): void {
   }

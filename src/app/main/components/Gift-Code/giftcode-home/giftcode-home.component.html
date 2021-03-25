@@ -1,0 +1,16 @@
+<div class="giftcode__location">
+    <a routerLink="/home">Trang chủ</a>
+    >
+    <a>Danh sách game</a>
+</div>
+<div class="giftcode__title">
+    <h2>Danh sách các game có GiftCode</h2>
+</div>
+<div class="giftcode__listgame">
+    <ng-container *ngIf="listGame.length >= 1">
+        <v-game *ngFor="let game of listGame" [game]="game" [isGiftCode]="true"></v-game>
+    </ng-container>
+    <ng-container *ngIf="isNotGame">
+        <h5>Hiện tại không có game</h5>
+    </ng-container>
+</div>

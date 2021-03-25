@@ -1,0 +1,50 @@
+.giftcode {
+    &__title {
+        margin-bottom: 35px;
+        padding: 25px 0px;
+
+        h2 {
+            border-bottom: 1px solid #e6e6e6;
+            border-left: 3px solid #00b3ff;
+            padding: 10px 5px;
+        }
+    }
+
+    &__listgame {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__location {
+        padding: 10px;
+
+        a {
+            text-decoration: none;
+        }
+
+        a:first-child {
+            color: #4083a9;
+            padding-right: 10px;
+
+            &:hover {
+                color: royalblue;
+            }
+        }
+
+        a:last-child {
+            padding-left: 10px;
+            color: #666666;
+        }
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .giftcode {
+        &__listgame {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

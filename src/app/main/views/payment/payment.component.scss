@@ -40,9 +40,10 @@
 
             .form_input_wrapper .input-text {
                 width: 100%;
-                height: 30px;
+                height: 35px;
                 border: 1px solid #ccc;
                 background: white;
+                font-size: 18px;
             }
 
             .form_input_wrapper .input-text:focus {
@@ -153,9 +154,15 @@
                 width: 100%;
             }
 
+            .form-fix {
+                margin-top: 10%;
+                padding-left: 15%;
+            }
+
             form {
-                margin-top: 25%;
-                padding-left: 25%;
+                margin-top: 20%;
+                padding-left: 20%;
+
 
                 label {
                     display: block;
@@ -250,6 +257,26 @@
 
         &__price {
             display: block;
+
+            &__form {
+                form {
+                    margin-top: 5%;
+                    margin-bottom: 5%;
+                    padding-left: 0%;
+
+                    input{
+                        width: 100%;
+                    }
+
+                    button{
+                        width: 100%;
+                    }
+                }
+
+                .form-fix{
+                    padding-left: 0%;
+                }
+            }
         }
     }
 }

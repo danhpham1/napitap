@@ -1,0 +1,86 @@
+.giftcode {
+    &__location {
+        padding: 10px;
+
+        a {
+            text-decoration: none;
+        }
+
+        a:first-child,
+        a:nth-child(2) {
+            color: #4083a9;
+            padding-right: 10px;
+
+            &:hover {
+                color: royalblue;
+            }
+        }
+
+        a:nth-child(2) {
+            padding-left: 10px;
+        }
+
+        a:last-child {
+            padding-left: 10px;
+            color: #666666;
+        }
+    }
+
+    &__title {
+        margin: 50px 0px;
+        text-align: center;
+
+        h4 {
+            font-size: 25px;
+            text-transform: uppercase;
+        }
+    }
+
+    &__form {
+        width: 50%;
+        margin: auto;
+
+        form {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+
+            select {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 20px;
+
+
+            }
+
+            input,
+            select {
+                border-radius: 15px;
+                border: 1px solid;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            button {
+                width: 100%;
+                margin-top: 25px;
+                padding: 11px;
+                font-size: 18px;
+                font-weight: 600;
+                background: #00b3ff;
+                border: 1px solid #00b3ff;
+                cursor: pointer;
+
+                &:hover {
+                    background: #00b3ff93;
+                }
+            }
+        }
+    }
+}
